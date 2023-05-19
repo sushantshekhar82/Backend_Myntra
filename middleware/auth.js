@@ -13,4 +13,4 @@ const auth = (req, res, next) => {
     res.status(400).send("login first");
   }
 };
-module.exports = { auth };
+module.exports =  auth ;

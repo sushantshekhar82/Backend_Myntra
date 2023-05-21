@@ -20,7 +20,9 @@ const { cartModel } = require("../model/cart");
     const payload=req.body
     try {
       const cartproduct=new cartModel(payload)
+      console.log(req.body,req.body)
       await cartproduct.save()
+      console.log(req.body,cartproduct)
       res.status(200).send({"msg":"post success"})
     } catch (error) {
       res.status(400).send({"msg":error.message})

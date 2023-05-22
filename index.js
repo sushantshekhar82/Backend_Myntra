@@ -7,6 +7,7 @@ const {product}=require("./routes/products")
 const user = require("./routes/user")
 const auth=require("./middleware/auth")
 const { cart } = require("./routes/cart")
+const useraddress = require("./routes/address")
 app.use(express.json())
 app.use(cors())
 app.get("/",(req,res)=>{
@@ -16,6 +17,7 @@ app.use("/user",user)
 app.use("/Product",product)
 app.use(auth)
 app.use("/cart",cart)
+app.use("/address",useraddress)
 
 app.listen(process.env.port,async()=>{
     try {

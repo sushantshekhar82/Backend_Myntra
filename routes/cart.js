@@ -7,8 +7,8 @@ const { cartModel } = require("../model/cart");
     try {
       const cart=await cartModel.find({
         userId:id})
-        const totalProducts = await cartModel.countDocuments()
-        res.status(200).send({cart,totalProducts})
+        
+        res.status(200).send(cart)
     } catch (error) {
       res.status(400).send({"msg":error.message})
     }

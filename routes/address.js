@@ -29,4 +29,27 @@ useraddress.post('/add',async(req,res)=>{
 
 })
 
+
+useraddress.delete("/deleteaddress/:id",async(req,res)=>{
+    const {id}=req.params
+    try {
+      await addressModel.findByIdAndDelete({_id:id})
+      res.status(200).send({"msg":"Delete Successfully"})
+    } catch (error) {
+      res.status(400).send({"msg":error.message})
+    }
+
+  })
+
+  useraddress.patch("/updateaddress/:id",async(req,res)=>{
+    const {id}=req.params
+    const payload=req.body
+    try {
+      await addressModel.findByIdAndUpdate({_id:id},payload)
+      res.status(200).send({"msg":"update successfully"})
+    } catch (error) {
+      res.status(400).send({"msg":error.message}) 
+    }
+  })
+
 module.exports=useraddress

@@ -8,8 +8,9 @@ const user = require("./routes/user")
 const auth=require("./middleware/auth")
 const { cart } = require("./routes/cart")
 const useraddress = require("./routes/address")
+const order = require("./routes/order")
 app.use(express.json())
-app.use(cors())
+app.use(cors({ origin: ["https://myntrawebproject.netlify.app/", "https://myntracloneproject.vercel.app/","http://localhost:3000/"] }))
 app.get("/",(req,res)=>{
     res.status(200).send("welcome")
 })
@@ -18,6 +19,7 @@ app.use("/Product",product)
 app.use(auth)
 app.use("/cart",cart)
 app.use("/address",useraddress)
+app.use('/order',order)
 
 app.listen(process.env.port,async()=>{
     try {

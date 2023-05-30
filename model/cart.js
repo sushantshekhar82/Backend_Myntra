@@ -1,6 +1,7 @@
 const mongoose=require("mongoose")
 
 const cartSchema=mongoose.Schema({
+    product_id:String,
     productName: String,
     imageLink:String,
      category: String,

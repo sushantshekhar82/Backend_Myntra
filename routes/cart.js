@@ -18,9 +18,22 @@ const { cartModel } = require("../model/cart");
   })
 
   cart.post("/addcart",async(req,res)=>{
-    const payload=req.body
+    const {_id,productName,imageLink,category,rating,discount,color,detail,brand,size,quantity}=req.body
     try {
-      const cartproduct=new cartModel(payload)
+      const cartproduct=new cartModel({
+        product_id:_id,
+    productName: productName,
+    imageLink:imageLink,
+     category: category,
+    rating: rating,
+    price: price,
+    discount: discount,
+    color: color,
+    detail: detail,
+    brand: brand,
+    size:size,
+    quantity:quantity
+      })
       console.log(req.body,req.body)
       await cartproduct.save()
       console.log(req.body,cartproduct)

@@ -32,7 +32,8 @@ const { cartModel } = require("../model/cart");
     detail: detail,
     brand: brand,
     size:size,
-    quantity:quantity
+    quantity:quantity,
+    userId:req.body.userId
       })
       console.log(req.body,req.body)
       await cartproduct.save()

@@ -18,7 +18,7 @@ const { cartModel } = require("../model/cart");
   })
 
   cart.post("/addcart",async(req,res)=>{
-    const {_id,productName,imageLink,category,rating,discount,color,detail,brand,size,quantity}=req.body
+    const {_id,productName,imageLink,category,rating,price,discount,color,detail,brand,size,quantity}=req.body
     try {
       const cartproduct=new cartModel({
         product_id:_id,

@@ -10,13 +10,13 @@ const { cart } = require("./routes/cart")
 const useraddress = require("./routes/address")
 const order = require("./routes/order")
 app.use(express.json())
-const corsOptions = { 
-    // origin:'https://abc.onrender.com',
-    AccessControlAllowOrigin: '*',  
-    origin: '*',  
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE' 
-  }
-  app.use(cors(corsOptions))
+app.use(function (req, res, next) {
+    //Enabling CORS
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+      next();
+    });
 
 app.get("/",(req,res)=>{
     res.status(200).send("welcome")

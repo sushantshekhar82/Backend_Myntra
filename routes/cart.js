@@ -55,6 +55,18 @@ const { cartModel } = require("../model/cart");
     }
 
   })
+  cart.delete("/deleteall/:id",async(req,res)=>{
+    const {id}=req.params
+    console.log(id)
+    try {
+     const data= await cartModel.deleteMany({userId:id})
+     console.log(data)
+      res.status(200).send({"msg":"Delete Successfully","data":data})
+    } catch (error) {
+      res.status(400).send({"msg":error.message})
+    }
+
+  })
 
   cart.patch("/updateqty/:id",async(req,res)=>{
     const {id}=req.params

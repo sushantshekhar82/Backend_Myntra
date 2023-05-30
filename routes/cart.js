@@ -36,9 +36,9 @@ const { cartModel } = require("../model/cart");
     userId:req.body.userId
       })
       console.log(req.body,req.body)
-      await cartproduct.save()
+    const data=  await cartproduct.save()
       console.log(req.body,cartproduct)
-      res.status(200).send({"msg":"post success"})
+      res.status(200).send({"msg":"post success","data":data})
     } catch (error) {
       res.status(400).send({"msg":error.message})
     }
@@ -48,8 +48,8 @@ const { cartModel } = require("../model/cart");
   cart.delete("/deletecart/:id",async(req,res)=>{
     const {id}=req.params
     try {
-      await cartModel.findByIdAndDelete({_id:id})
-      res.status(200).send({"msg":"Delete Successfully"})
+     const data= await cartModel.findByIdAndDelete({_id:id})
+      res.status(200).send({"msg":"Delete Successfully","data":data})
     } catch (error) {
       res.status(400).send({"msg":error.message})
     }
@@ -60,8 +60,8 @@ const { cartModel } = require("../model/cart");
     const {id}=req.params
     const payload=req.body
     try {
-      await cartModel.findByIdAndUpdate({_id:id},payload)
-      res.status(200).send({"msg":"update successfully"})
+      const data= await cartModel.findByIdAndUpdate({_id:id},payload)
+      res.status(200).send({"msg":"update successfully","data":data})
     } catch (error) {
       res.status(400).send({"msg":error.message}) 
     }

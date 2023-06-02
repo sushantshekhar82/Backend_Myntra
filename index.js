@@ -10,9 +10,9 @@ const { cart } = require("./routes/cart")
 const useraddress = require("./routes/address")
 const order = require("./routes/order")
 app.use(express.json())
-app.options("*", cors({ origin: ['https://myntracloneproject.vercel.app','https://myntrawebproject.netlify.app','http://localhost:3000'], optionsSuccessStatus: 200 }));
+app.options("*", cors({ origin: ['https://myntracloneproject.vercel.app/','https://myntrawebproject.netlify.app','http://localhost:3000'], optionsSuccessStatus: 200 }));
 
-app.use(cors({ origin: ['https://myntracloneproject.vercel.app','https://myntrawebproject.netlify.app','http://localhost:3000'], optionsSuccessStatus: 200 }));
+app.use(cors({ origin: ['https://myntracloneproject.vercel.app/','https://myntrawebproject.netlify.app','http://localhost:3000'], optionsSuccessStatus: 200 }));
 
 app.get("/",(req,res)=>{
     res.status(200).send("welcome")

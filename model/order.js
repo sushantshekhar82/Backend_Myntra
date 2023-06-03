@@ -1,6 +1,7 @@
 const mongoose=require('mongoose')
 
 const orderSchema=mongoose.Schema({
+    product_id:String,
     productName: String,
     imageLink:String,
      category: String,
@@ -12,7 +13,6 @@ const orderSchema=mongoose.Schema({
     brand: String,
     size:String,
     quantity:Number,
-    status:String,
     userId:String
 })
 const orderModel=mongoose.model('order',orderSchema)

@@ -1,5 +1,6 @@
 const express=require ("express");
 const { cartModel } = require("../model/cart");
+const orderModel = require("../model/order");
   const cart=express.Router()
 
   cart.get("/:id",async(req,res)=>{
@@ -59,6 +60,7 @@ const { cartModel } = require("../model/cart");
     const {id}=req.params
     console.log(id)
     try {
+      
      const data= await cartModel.deleteMany({userId:id})
      console.log(data)
       res.status(200).send({"msg":"Delete Successfully","data":data})
